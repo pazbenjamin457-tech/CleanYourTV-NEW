@@ -16,14 +16,9 @@ jobs:
           java-version: '17'
 
       - name: Instalar Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          cmdline-tools-version: 'latest'
-
-      - name: Instalar paquetes SDK
         run: |
-          yes | sdkmanager --licenses
-          sdkmanager "platforms;android-34" "build-tools;34.0.0"
+          sudo apt-get update
+          sudo apt-get install -y android-sdk
 
       - name: Compilar APK
         run: |
