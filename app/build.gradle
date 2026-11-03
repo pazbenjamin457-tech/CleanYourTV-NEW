@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.gathin.tvhome'
+    namespace 'com.cleanyourtv.launcher'
     compileSdk 34
 
     defaultConfig {
-        applicationId 'com.gathin.tvhome'
+        applicationId 'com.cleanyourtv.launcher'
         minSdk 26
         targetSdk 34
         versionCode 12
