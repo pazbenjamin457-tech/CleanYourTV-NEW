@@ -1,34 +1,34 @@
 name: CleanYourTV APK
 
 on:
-workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:    
+    runs-on:    ubuntu-latest
 
-steps:
-  - name: Descargar proyecto
-    uses: actions/checkout@v4
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
 
-  - name: Configurar Java
-    uses: actions/setup-java@v4
-    with:
-      distribution: temurin
-      java-version: '17'
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
 
-  - name: Configurar Android SDK
-    uses: android-actions/setup-android@v3
-    with:
-      packages: 'platforms;android-34,build-tools;34.0.0'
+      - name: Configurar Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-34,build-tools;34.0.0'
 
-  - name: Compilar APK
-    run: |
-      gradle wrapper --gradle-version 8.9
-      ./gradlew assembleDebug
+      - name: Compilar APK
+        run: |
+          gradle wrapper --gradle-version 8.9
+          ./gradlew assembleDebug
 
-  - name: Guardar APK
-    uses: actions/upload-artifact@v4
-    with:
-      name: CleanYourTV-APK
-      path: app/build/outputs/apk/debug/*.apk
+      - name: Guardar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: CleanYourTV-APK
+          path: app/build/outputs/apk/debug/*.apk
