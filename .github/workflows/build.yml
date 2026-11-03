@@ -1,4 +1,3 @@
-
 name: CleanYourTV APK
 
 on:
@@ -25,6 +24,8 @@ jobs:
 
       - name: Configurar Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
 
       - name: Instalar componentes Android
         run: sdkmanager --install "platforms;android-34" "build-tools;34.0.0"
