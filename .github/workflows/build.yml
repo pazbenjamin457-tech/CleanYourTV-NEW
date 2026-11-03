@@ -2,9 +2,6 @@ name: CleanYourTV APK
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   build:
@@ -20,10 +17,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Configurar Android SDK
+      - name: Configurar Android
         uses: android-actions/setup-android@v3
 
-      - name: Instalar herramientas
+      - name: Instalar SDK
         run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
       - name: Compilar APK
